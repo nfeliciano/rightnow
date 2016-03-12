@@ -20,6 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/views',  express.static(__dirname + '/client/views'));
+app.use('/scripts', express.static(__dirname + '/client/public/javascripts'));
+app.use('/css',  express.static(__dirname + '/client/public/stylesheets'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 app.use('/', routes);
 
