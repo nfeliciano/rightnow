@@ -1,0 +1,3 @@
+*.log
+app/node_modules
+app/bower_components
