@@ -1,0 +1,27 @@
+{
+  "name": "rightnow",
+  "description": "Find things to do in Vic",
+  "main": "app.js",
+  "authors": [
+    "nfeliciano <feliciano.noel@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nfeliciano/rightnow",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18"
+  },
+  "resolutions": {
+    "angular": "^1.5.0"
+  }
+}
