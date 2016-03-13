@@ -33,14 +33,14 @@ class Restaurant(Base):
     __tablename__ = 'restaurants'
     id = Column(Integer, primary_key=True)
     name = Column(String(512), unique=False)
-    address = Column(String(512), unique=False)
-    description = Column(String(512), unique=False)
-    image_url = Column(String(2083), unique=True)
-    latitude = Column(String(16), unique=True)
-    longitude = Column(String(16), unique=True)
-    phone_number = Column(String(16), unique=True)
-    subcategory = Column(String(16), unique=True)
-    website = Column(String(2083), unique=True)
+    address = Column(String(512))
+    description = Column(String(512))
+    image_url = Column(String(2083))
+    latitude = Column(String(16))
+    longitude = Column(String(16))
+    phone_number = Column(String(16))
+    subcategory = Column(String(16))
+    website = Column(String(2083))
     postal_code = String(16)
 
     def __init__(self, name, address, description, image_url, latitude, longitude, phone_number, subcategory, website, postal_code):
