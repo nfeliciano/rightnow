@@ -1,5 +1,6 @@
 import random
 
+from nocache import nocache
 from flask import Flask, send_file, jsonify, request
 import database
 import models
@@ -23,7 +24,9 @@ def random_in(model=models.Restaurant):
     return database.db_session.query(model)[random_index]
 
 
+
 @app.route('/api')
+@nocache
 def api_request():
     try:
         data = list()
@@ -49,6 +52,7 @@ def api_request():
         return jsonify(**dict({"error_id":100, "error_message":"Not sure what went wrong :'(","error_name":"unspecified_error"}))
 
 @app.route('/login', methods=['GET', 'POST'])
+@nocache
 def login():
     username = request.args.get('username')
     password = request.args.get('password')
@@ -57,6 +61,7 @@ def login():
     return ''
 
 @app.route('/')
+@nocache
 def index():
     return send_file("templates/index.html")
 
