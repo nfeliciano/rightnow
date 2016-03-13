@@ -17,25 +17,36 @@ def serialize(model):
 app = Flask(__name__, static_url_path='/static')
 
 
-def recommend_restaurant():
+def random_in(model=models.Restaurant):
     # To start with just recommend a restaurant at random
-    random_index = random.randrange(0, database.db_session.query(models.Restaurant).count())
+    random_index = random.randrange(0, database.db_session.query(model).count())
     return database.db_session.query(models.Restaurant)[random_index]
 
 
 @app.route('/api')
 def api_request():
-    data = list()
-    random = request.args.get('random')
+    try:
+        data = list()
+        random = request.args.get('random')
+        table = request.args.get('table')
+        model_table = None
+        if(table):
+            model_table = {
+                'restaurants' : models.Restaurant,
+                'activities' : models.Activity,
+                'events' : models.Event
+            }[table]
 
-
-    if(random and random.isdigit()):
-        for i in range(int(random)):
-            data.append(serialize(recommend_restaurant()))
-    elif(True):
-        pass
-    result = {'result' : data};
-    return jsonify(**result)#jsonify(**serialize(recommend_restaurant()))
+        if(random and random.isdigit()):
+            for i in range(int(random)):
+                pass
+                data.append(serialize(random_in(model_table)))
+        elif(True):
+            pass
+        result = {'result' : data};
+        return jsonify(**result)#jsonify(**serialize(recommend_restaurant()))
+    except:
+        return jsonify(**dict({"error_id":100, "error_message":"Not sure what went wrong :'(","error_name":"unspecified_error"}))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -50,4 +61,5 @@ def index():
     return send_file("templates/index.html")
 
 if __name__ == '__main__':
+    app.debug = True
     app.run(host="0.0.0.0")
