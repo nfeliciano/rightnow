@@ -12,7 +12,7 @@ def parse_datetime(date_string):
 def ticket_availability(tickets_info):
     if tickets_info == "true":
         return True
-    else
+    else:
         return False
 
 
@@ -25,7 +25,7 @@ def run_scraper():
         if placemark["venue"]["address"]["city"] == "Victoria":
             events.append(
                 models.Event(
-                    placemark["events"]["category"]["name"],
+                    placemark["category"]["name"],
                     placemark["name"]["text"],
                     placemark["venue"]["name"] +" ," + placemark["venue"]["address"]["address_1"],
                     placemark["description"]["text"],
