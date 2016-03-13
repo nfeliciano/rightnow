@@ -1,9 +1,18 @@
-rightnow.controller('formController', function($scope, $state, $http) {
+rightnow.controller('formController', function($rootScope, $scope, $state, $http) {
   $scope.formData = {};
   $scope.selectedTime = { name: 'None' };
   $scope.selectedEventType = { name: 'None' };
   $scope.atEvent = false;
   $scope.atStart = true;
+
+  $rootScope.$on('$viewContentLoading',
+    function(event, viewConfig){
+      if ($state.$current == 'form.event' || $state.$current == 'form.event2') {
+        if ($.isEmptyObject($scope.formData)) {
+          $state.transitionTo('form.what');
+        }
+      }
+  });
 
   $scope.tryText = [
     { type: 'normal',
