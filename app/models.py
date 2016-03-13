@@ -28,13 +28,14 @@ class Event(Base):
     def __repr__(self):
         return '<Event %r>' % (self.name)
 
+
 class Restaurant(Base):
     __tablename__ = 'restaurants'
     id = Column(Integer, primary_key=True)
     name = Column(String(512), unique=False)
     address = Column(String(512), unique=False)
     description = Column(String(512), unique=False)
-    image = Column(String(2083), unique=True)
+    image_url = Column(String(2083), unique=True)
     latitude = Column(String(16), unique=True)
     longitude = Column(String(16), unique=True)
     phone_number = Column(String(16), unique=True)
@@ -42,11 +43,11 @@ class Restaurant(Base):
     website = Column(String(2083), unique=True)
     postal_code = String(16)
 
-    def __init__(self, name=None, atPlace=None, atTime=None, circa=None, illustrate=None, inSpace=None, involved=None, involvedAgent=None, url=None):
+    def __init__(self, name, address, description, image_url, latitude, longitude, phone_number, subcategory, website, postal_code):
         self.name = name
         self.address = address
         self.description = description
-        self.image = image
+        self.image_url = image_url
         self.latitude = latitude
         self.longitude = longitude
         self.phone_number = phone_number
