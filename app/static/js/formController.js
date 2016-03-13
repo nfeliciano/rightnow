@@ -30,7 +30,13 @@ rightnow.controller('formController', function($scope, $state, $http) {
 
   $scope.eventTypeSelected = function() {
     //change here
-    $state.transitionTo('form.event');
+    $http.get('api?random=1&table=activities')
+    .success(function(data) {
+      $scope.meetJason = data.result[0];
+      $state.transitionTo('form.event');
+    }).error(function(error) {
+      console.log(error);
+    });
   }
 
   // $scope.meetJason = {
