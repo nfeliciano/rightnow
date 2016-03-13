@@ -17,6 +17,11 @@ rightnow.controller('formController', function($scope, $state, $http) {
     { name: 'Event' }
   ];
 
+  $scope.activityTypes = [
+    { name: 'Outdoor Activities' },
+    { name: 'Nightlife Activities' }
+  ];
+
   $scope.findEvent = function() {
     alert('FIND SOMETHING');
   }
@@ -27,6 +32,23 @@ rightnow.controller('formController', function($scope, $state, $http) {
   }
 
   $scope.eventTypeSelected = function() {
+    //change here
+    if ($scope.formData.eventType.name == 'Restaurant' || $scope.formData.eventType.name == 'Event')
+      $scope.sendQuery();
+    else {
+      // $scope.activityTypeSelected();
+      $state.transitionTo('form.activity');
+    }
+  }
+
+  $scope.activityTypeSelected = function() {
+    //change here
+    // $scope.eventTypeSelected();
+    $scope.formData.eventType.name = 'Activity';
+    $scope.sendQuery();
+  }
+
+  $scope.sendQuery = function() {
     //change here
     $http.get(getQueryString($scope.formData))
     .success(function(data) {

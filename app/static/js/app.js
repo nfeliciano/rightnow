@@ -16,6 +16,10 @@ rightnow.config(function($stateProvider, $urlRouterProvider) {
       url: '/what',
       templateUrl: '/static/partials/form-what.html'
     })
+    .state('form.activity', {
+      url: '/activity',
+      templateUrl: '/static/partials/form-activity.html'
+    })
     .state('form.event', {
       url: '/event',
       templateUrl: '/static/partials/form-event.html'
