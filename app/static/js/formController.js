@@ -1,4 +1,4 @@
-rightnow.controller('formController', function($scope) {
+rightnow.controller('formController', function($scope, $state) {
   $scope.formData = {};
   $scope.selectedTime = { name: 'None' };
 
@@ -16,5 +16,6 @@ rightnow.controller('formController', function($scope) {
 
   $scope.timeSelected = function() {
     //change here
+    $state.transitionTo('form.what');
   }
 });
