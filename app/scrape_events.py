@@ -31,7 +31,7 @@ def parse_events(EVENTS_ENDPOINT):
                 models.Event(
                     placemark["category"]["name"] if placemark["category"] else "",
                     placemark["name"]["text"],
-                    null_check(placemark["venue"],"name") +" ," + placemark["venue"]["address"]["address_1"],
+                    null_check(placemark["venue"],"name") +" ," + null_check(placemark["venue"]["address"], "address_1"),
                     placemark["description"]["text"],
                     null_check(placemark["venue"]["address"],"latitude"),
                     null_check(placemark["venue"]["address"],"longitude"),
