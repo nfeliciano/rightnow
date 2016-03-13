@@ -9,7 +9,7 @@ Build with love/using coffee, Python (Flask), SQLite & PostgreSQL, SQLAlchemy, H
 - Noel: Not-quite-yet-Professional, only done smaller webdev projects (mostly an iOS developer), some experience with Angular, none with Flask
 - David: professional, python, flask, databases
 - Karina : on a first software dev co-op (C/C++), currently learning python 
-- Jon: recent psychology/computer science graduate. Worked on user-interaction design, front end. Experience with iOS development, somewhat new to web dev. This was more or less my first time using Angularjs.
+- Jon: recent psychology/computer science graduate. Worked on user-interaction design, front end. Experience with iOS development, first time -really- using Angularjs (I worked on a website with someone who used angular once, but I more or less avoided all of the angular code.)
 
 
 
