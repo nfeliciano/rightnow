@@ -9,12 +9,11 @@ TOURISM_VICTORIA_EVENTS_ENDPOINT = "https://www.eventbrite.ca/directory/json?pag
 def parse_datetime(date_string):
    return datetime.datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
 
-def ticket_availability(tickets_info):
-    if tickets_info == "true":
+def ticket_availability(m_placemark):
+    if placemark["price_range"] == "Free":
         return True
     else:
-        return False
-
+        return (placemark["ticket_availability"]["remaining_capacity"] > 0)
 
 
 def run_scraper():
@@ -33,7 +32,7 @@ def run_scraper():
                     placemark["venue"]["address"]["longitude"],
                     placemark["venue"]["address"]["postal_code"],
                     placemark["price_range"],
-                    ticket_availability(placemark["ticket_availability"]["has_available_tickets"]),
+                    ticket_availability(placemark),
                     placemark["start"]["date_header"],
                     parse_datetime(placemark["start"]["local"]),
                     parse_datetime(placemark["end"]["local"]),
