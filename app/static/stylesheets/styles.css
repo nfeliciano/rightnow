@@ -10,9 +10,13 @@ body {
   margin-top: 200px;
 }
 
+#right-now-form {
+  min-height: 200px;
+}
+
 @media screen and (min-width: 480px) {
   #right-now-form {
-    min-height: 50px;
+    min-height: 20px;
   }
 }
 
@@ -37,10 +41,6 @@ body.disco .page > * { /* Selectors of things you want to fade out. Not applicab
   display: block;
 }
 
-#right-now-form {
-  min-height: 300px;
-}
-
 #form-views {
   background-color: rgba(0, 0, 0, 0.4);
   border-style: solid;
@@ -48,7 +48,6 @@ body.disco .page > * { /* Selectors of things you want to fade out. Not applicab
   border-radius: 25px;
   border-color: rgba(0, 0, 0, 0);
   padding: 20px;
-  min-height: 300px;
 }
 
 .bold {
