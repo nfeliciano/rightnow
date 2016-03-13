@@ -6,7 +6,7 @@ import models
 
 TOURISM_VICTORIA_EVENTS_ENDPOINT = ""
 
-def main():
+def run_scraper():
     response = requests.get(TOURISM_VICTORIA_EVENTS_ENDPOINT)
 
     events = []
@@ -32,4 +32,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_scraper()
