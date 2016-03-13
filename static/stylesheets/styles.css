@@ -1,0 +1,152 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300italic,300,900italic,900,700italic,700,400italic&subset=latin,latin-ext);
+
+body {
+  font-family: Lato, sans-serif;
+  background-color: #FFF;
+  color: #FFF;
+}
+
+.content {
+  margin-top: 200px;
+}
+
+#right-now-form {
+  min-height: 300px;
+}
+
+#navbuttons {
+  position: relative;
+  margin-top: 10px;
+  right: 0px;
+}
+
+#startOverButton {
+  float: left;
+  margin-left: 10px;
+  text-decoration: underline;
+  color: #fff;
+}
+
+#nextButton {
+  float: right;
+  margin-right: 10px;
+  text-decoration: underline;
+  color: #fff;
+}
+
+body.disco {
+  background: #000;
+  -webkit-animation-name: disco;
+  -webkit-animation-duration: 1000s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 1s;
+}
+
+body.disco .page > * { /* Selectors of things you want to fade out. Not applicable in this example. */
+  -webkit-animation-name: fade-out;
+  -webkit-animation-duration: 0.5s;
+
+  opacity: 0;
+}
+.no-cssanimations body.disco h1:after {
+  content: " Currently WebKit only, try Safari or Google Chrome";
+  font-size: 15px;
+  text-transform: none;
+  display: block;
+}
+
+#form-views {
+  max-height: 300px;
+  min-height: 300px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 25px;
+  border-color: rgba(0, 0, 0, 0);
+  padding: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .content {
+    margin-top: 20px;
+  }
+
+  #right-now-form {
+    min-height: 500px;
+  }
+
+  #form-views {
+    max-height: 500px;
+    min-height: 500px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#form-views.ng-enter, #form-views.ng-leave {
+  position:absolute;
+  left:30px;
+  right:30px;
+  transition:0.5s all ease;
+  -moz-transition:0.5s all ease;
+  -webkit-transition:0.5s all ease;
+}
+
+#form-views.ng-enter {
+  -webkit-animation:slideInRight 0.5s both ease;
+  -moz-animation:slideInRight 0.5s both ease;
+  animation:slideInRight 0.5s both ease;
+}
+
+#form-views.ng-leave {
+  -webkit-animation:slideOutLeft 0.5s both ease;
+  -moz-animation:slideOutLeft 0.5s both ease;
+  animation:slideOutLeft 0.5s both ease;
+}
+
+@keyframes slideOutLeft {
+    to      { transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {
+    to      { -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to      { -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform:translateX(200%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform:translateX(200%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform:translateX(200%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+@-webkit-keyframes fade-in {
+  0%   { opacity: 0; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade-out {
+  0%   { opacity: 1; }
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-webkit-keyframes network-fade-in {
+  0%   { opacity: 0; top: -20px; }
+  60%   { opacity: 0; top: -20px; }
+  100% { opacity: 1; top: 0; }
+}
+
+@-webkit-keyframes disco { 0% { background: #508; }2% { background: #fd7; }4% { background: #85f; }6% { background: #708; }8% { background: #ed2; }10% { background: #67c; }12% { background: #06a; }14% { background: #8bb; }16% { background: #0f8; }18% { background: #8a9; }20% { background: #3bc; }22% { background: #fb2; }24% { background: #31c; }26% { background: #e31; }28% { background: #c75; }30% { background: #e39; }32% { background: #e66; }34% { background: #89d; }36% { background: #302; }38% { background: #0f7; }40% { background: #c6f; }42% { background: #14c; }44% { background: #ac3; }46% { background: #aec; }48% { background: #42e; }50% { background: #74d; }52% { background: #7a7; }54% { background: #da3; }56% { background: #ba4; }58% { background: #17e; }60% { background: #58b; }62% { background: #7eb; }64% { background: #58e; }66% { background: #740; }68% { background: #26d; }70% { background: #bb6; }72% { background: #c3c; }74% { background: #33a; }76% { background: #f4c; }78% { background: #83b; }80% { background: #e45; }82% { background: #426; }84% { background: #fe5; }86% { background: #71f; }88% { background: #e2f; }90% { background: #294; }92% { background: #63e; }94% { background: #275; }96% { background: #2ae; }98% { background: #197; }100% { background: #7bd; } }
