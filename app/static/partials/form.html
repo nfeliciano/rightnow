@@ -3,9 +3,14 @@
     <div id="form-views" ng-swipe-left="swipeLeft()" ui-view></div>
   </form>
 </div>
-<span ng-show="atEvent" ng-click="sendQuery()">
-  Next!
-</span>
+<div id="navbuttons">
+  <a href=""><span id="startOverButton" ng-hide="atStart" ng-click="startOver()">
+    < Start again.
+  </span></a>
+  <a href=""><span id="nextButton" ng-show="atEvent" ng-click="sendQuery()">
+    No good! Give me another! >
+  </span></a>
+</div>
 
 <!-- <pre>
   {{ formData }}

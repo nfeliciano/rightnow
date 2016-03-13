@@ -3,6 +3,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
   $scope.selectedTime = { name: 'None' };
   $scope.selectedEventType = { name: 'None' };
   $scope.atEvent = false;
+  $scope.atStart = true;
 
   $scope.times = [
     { name: 'Right Now!' },
@@ -30,6 +31,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
 
   $scope.eventTypeSelected = function() {
     //change here
+    $scope.atStart = false;
     if ($scope.formData.eventType.name == 'Restaurant' || $scope.formData.eventType.name == 'Event')
       $scope.sendQuery();
     else {
@@ -63,6 +65,12 @@ rightnow.controller('formController', function($scope, $state, $http) {
     }).error(function(error) {
       console.log(error);
     });
+  }
+
+  $scope.startOver = function() {
+    $scope.atEvent = false;
+    $scope.atStart = true;
+    $state.transitionTo('form.what');
   }
 
   function getQueryString(formData) {
