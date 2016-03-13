@@ -42,7 +42,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
       return 'api?random=1&table=restaurants';
     else if (formData.eventType.name == 'Activity')
       return 'api?random=1&table=activities';
-    else return 'api?random=1&table=activities';
+    else return 'api?random=1&table=events';
   }
 
   // $scope.meetJason = {
