@@ -67,9 +67,9 @@ rightnow.controller('formController', function($scope, $state, $http) {
 
   function getQueryString(formData) {
     if (formData.eventType.name == 'Restaurant')
-      return 'api?random=1&table=restaurants';
+      return 'api?random=10&table=restaurants';
     else if (formData.eventType.name == 'Activity')
-      return 'api?random=1&table=activities';
+      return 'api?random=10&table=activities';
     else return 'api?random=1&table=events';
   }
 });
