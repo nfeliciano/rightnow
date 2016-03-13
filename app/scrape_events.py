@@ -57,6 +57,7 @@ def run_scraper():
         page_number = 2
         while page_number < page_count:
             parse_events(TOURISM_VICTORIA_EVENTS_ENDPOINT.format(page_number))
+            page_number+=1
 
 
 if __name__ == "__main__":
