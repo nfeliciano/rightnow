@@ -4,4 +4,8 @@ rightnow.controller('formController', function($scope) {
   $scope.findEvent = function() {
     alert('FIND SOMETHING');
   }
+
+  $scope.timeSelected = function() {
+    alert('selected time');
+  }
 });
