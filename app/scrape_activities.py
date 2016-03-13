@@ -32,7 +32,7 @@ def get_activity(ACTIVITY_ENDPOINT):
     database.db_session.add_all(activities)
     database.db_session.commit()
 
-def main():
+def run_scraper():
 
     list_of_activities = []
     list_of_activities.append(TOURISM_VICTORIA_OUTDOOR_ACTIVITIES_ENDPOINT)
@@ -43,4 +43,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run_scraper()
