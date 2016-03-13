@@ -30,7 +30,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
 
   $scope.eventTypeSelected = function() {
     //change here
-    $state.transitionTo('form.what');
+    $state.transitionTo('form.event');
   }
 
   // $scope.meetJason = {
