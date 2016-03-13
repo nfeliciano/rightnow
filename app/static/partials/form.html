@@ -1,6 +1,6 @@
 <div id="right-now-form">
   <form id="finder-form">
-    <div id="form-views" ui-view></div>
+    <div id="form-views" ng-swipe-left="swipeLeft()" ui-view></div>
   </form>
 </div>
 <span ng-show="atEvent" ng-click="sendQuery()">

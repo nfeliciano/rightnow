@@ -72,4 +72,10 @@ rightnow.controller('formController', function($scope, $state, $http) {
       return 'api?random=10&table=activities';
     else return 'api?random=1&table=events';
   }
+
+  $scope.swipeLeft = function() {
+    if ($state.$current == 'form.event' || $state.$current == 'form.event2') {
+      $scope.sendQuery();
+    }
+  }
 });
