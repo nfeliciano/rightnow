@@ -1,1 +1,8 @@
-<h1>Lol</h1>
+<fieldset class="form-group">
+  <label for="eventTypeSelect">What do you want to do?</label>
+  <select class="form-control" id="eventTypeSelect"
+    ng-model="formData.eventType"
+    ng-options="eventType.name for eventType in eventTypes track by eventType.name"
+    ng-change="eventTypeSelected()">
+  </select>
+</fieldset>
