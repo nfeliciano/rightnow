@@ -18,3 +18,12 @@ $ python bootstrap.py
 ```bash
 $ python app.py
 ```
+
+# Technologies
+
+* Python
+* Flask
+* PostgreSQL
+* SQLAlchemy
+* Heroku
+* AngularJS
