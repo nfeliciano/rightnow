@@ -2,7 +2,6 @@ var rightnow = angular.module('rightnow', ['ui.router']);
 
 rightnow.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/form/time");
-  $urlRouterProvider.otherwise("/form/what");
   $stateProvider
     .state('form', {
       url: '/form',
@@ -16,5 +15,9 @@ rightnow.config(function($stateProvider, $urlRouterProvider) {
     .state('form.what', {
       url: '/what',
       templateUrl: '/static/partials/form-what.html'
+    })
+    .state('form.event', {
+      url: '/event',
+      templateUrl: '/static/partials/form-event.html'
     });
 });
