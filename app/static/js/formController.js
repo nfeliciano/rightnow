@@ -14,6 +14,8 @@ rightnow.controller('formController', function($scope, $state, $http) {
       quote: 'Uhhhhhhhh... Try' },
     { type: 'normal',
       quote: 'Take a look at' },
+    { type: 'normal',
+      quote: '#' },
     { type: 'question',
       quote: 'Maybe' },
     { type: 'question',
