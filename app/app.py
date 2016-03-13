@@ -34,12 +34,17 @@ def api_request():
         table = request.args.get('table')
         model_table = None
         if(table):
-            model_table = {
-                'restaurants' : models.Restaurant,
-                'activities' : models.Activity,
-                'events' : models.Event
-            }[table]
-
+            try:
+                model_table = {
+                    'restaurants' : models.Restaurant,
+                    'activities' : models.Activity,
+                    'events' : models.Event
+                }[table]
+            except:
+                return jsonify(**dict({
+                    "error_id":101,
+                    "error_message":"Not sure what went wrong :'(",
+                    "error_name":"bad_parameter"}))
         if(random and random.isdigit()):
             for i in range(int(random)):
                 pass
@@ -49,7 +54,10 @@ def api_request():
         result = {'result' : data};
         return jsonify(**result)#jsonify(**serialize(recommend_restaurant()))
     except:
-        return jsonify(**dict({"error_id":100, "error_message":"Not sure what went wrong :'(","error_name":"unspecified_error"}))
+        return jsonify(**dict({
+            "error_id":100,
+            "error_message":"Not sure what went wrong :'(",
+            "error_name":"unspecified_error"}))
 
 @app.route('/login', methods=['GET', 'POST'])
 @nocache
