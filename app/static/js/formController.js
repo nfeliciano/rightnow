@@ -1,4 +1,4 @@
-rightnow.controller('formController', function($scope, $state) {
+rightnow.controller('formController', function($scope, $state, $http) {
   $scope.formData = {};
   $scope.selectedTime = { name: 'None' };
   $scope.selectedEventType = { name: 'None' };
@@ -33,11 +33,19 @@ rightnow.controller('formController', function($scope, $state) {
     $state.transitionTo('form.what');
   }
 
-  $scope.meetJason = {
-    id: '11',
-    name: 'Itami Sushi',
-    address: '615 Yates St',
-    description: 'Excellent food and friendly service makes your dining experience a pleasure. Azuma Sushi, a newly opened and renovated Japanese restaurant located in the heart of downtown Victoria. Ingredients are hand-picked fresh daily. Sushi are made right when you order. We offer a variety of food from convenient Bento Boxes, Lunch and Dinner Combos and Sushi dishes. All items in the menu may be take out in a special bento box, complete with chopsticks and soy sauce.',
-    url: 'http://www.tourismvictoria.com/includes/redirects/webcount.cfm?listingID=33959'
-  }
+  // $scope.meetJason = {
+  //   id: '11',
+  //   name: 'Itami Sushi',
+  //   address: '615 Yates St',
+  //   description: 'Excellent food and friendly service makes your dining experience a pleasure. Azuma Sushi, a newly opened and renovated Japanese restaurant located in the heart of downtown Victoria. Ingredients are hand-picked fresh daily. Sushi are made right when you order. We offer a variety of food from convenient Bento Boxes, Lunch and Dinner Combos and Sushi dishes. All items in the menu may be take out in a special bento box, complete with chopsticks and soy sauce.',
+  //   url: 'http://www.tourismvictoria.com/includes/redirects/webcount.cfm?listingID=33959'
+  // };
+
+  $http.get('http://localhost:5000/api?random=1')
+    .success(function(data) {
+      $scope.meetJason = data.result[0];
+      console.log($scope.meetJason);
+    }).error(function(error) {
+      console.log(error);
+    });
 });
