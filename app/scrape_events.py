@@ -10,10 +10,10 @@ def parse_datetime(date_string):
    return datetime.datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S")
 
 def ticket_availability(m_placemark):
-    if placemark["price_range"] == "Free":
+    if m_placemark["price_range"] == "Free":
         return True
     else:
-        return (placemark["ticket_availability"]["remaining_capacity"] > 0)
+        return (m_placemark["ticket_availability"]["remaining_capacity"] > 0)
 
 
 def run_scraper():
