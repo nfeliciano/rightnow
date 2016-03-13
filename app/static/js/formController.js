@@ -2,6 +2,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
   $scope.formData = {};
   $scope.selectedTime = { name: 'None' };
   $scope.selectedEventType = { name: 'None' };
+  $scope.atEvent = false;
 
   $scope.times = [
     { name: 'Right Now!' },
@@ -21,10 +22,6 @@ rightnow.controller('formController', function($scope, $state, $http) {
     { name: 'Outdoor Activities' },
     { name: 'Nightlife Activities' }
   ];
-
-  $scope.findEvent = function() {
-    alert('FIND SOMETHING');
-  }
 
   $scope.timeSelected = function() {
     //change here
@@ -53,7 +50,16 @@ rightnow.controller('formController', function($scope, $state, $http) {
     $http.get(getQueryString($scope.formData))
     .success(function(data) {
       $scope.meetJason = data.result[0];
-      $state.transitionTo('form.event');
+      if ($scope.atEvent == false) {
+        $state.transitionTo('form.event');
+      } else {
+        if ($state.$current == 'form.event') {
+          $state.transitionTo('form.event2');
+        } else if ($state.$current == 'form.event2') {
+          $state.transitionTo('form.event');
+        }
+      }
+      $scope.atEvent = true;
     }).error(function(error) {
       console.log(error);
     });
@@ -67,18 +73,9 @@ rightnow.controller('formController', function($scope, $state, $http) {
     else return 'api?random=1&table=events';
   }
 
-  // $scope.meetJason = {
-  //   id: '11',
-  //   name: 'Itami Sushi',
-  //   address: '615 Yates St',
-  //   description: 'Excellent food and friendly service makes your dining experience a pleasure. Azuma Sushi, a newly opened and renovated Japanese restaurant located in the heart of downtown Victoria. Ingredients are hand-picked fresh daily. Sushi are made right when you order. We offer a variety of food from convenient Bento Boxes, Lunch and Dinner Combos and Sushi dishes. All items in the menu may be take out in a special bento box, complete with chopsticks and soy sauce.',
-  //   url: 'http://www.tourismvictoria.com/includes/redirects/webcount.cfm?listingID=33959'
-  // };
-
-  $http.get('api?random=10&table=activities')
-    .success(function(data) {
-      $scope.meetJason = data.result[0];
-    }).error(function(error) {
-      console.log(error);
-    });
+  $scope.swipeLeft = function() {
+    if ($state.$current == 'form.event' || $state.$current == 'form.event2') {
+      $scope.sendQuery();
+    }
+  }
 });
