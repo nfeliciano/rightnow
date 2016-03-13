@@ -15,6 +15,6 @@ rightnow.controller('formController', function($scope) {
   }
 
   $scope.timeSelected = function() {
-    console.log($scope.selectedTime)
+    //change here
   }
 });

@@ -1,9 +1,8 @@
 <fieldset class="form-group">
-  <label for="timeSelect">{{haha}} When do you want to do something?</label>
+  <label for="timeSelect">When do you want to do something?</label>
   <select class="form-control" id="timeSelect"
-    ng-model="selectedTime"
+    ng-model="formData.time"
     ng-options="time.name for time in times track by time.name"
     ng-change="timeSelected()">
   </select>
-  {{ selectedTime }}
 </fieldset>
