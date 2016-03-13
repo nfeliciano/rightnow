@@ -1,29 +1,37 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, Boolean
 from database import Base
 
 class Event(Base):
     __tablename__ = 'events'
     id = Column(Integer, primary_key=True)
+    subcategory = Column(String(512))
     name = Column(String(512), unique=False)
-    atPlace = Column(String(512), unique=False)
-    atTime = Column(DateTime, unique=False)
-    circa = Column(DateTime, unique=False)
-    illustrate = Column(String(512), unique=False)
-    inSpace = Column(String(512), unique=False)
-    involved = Column(String(512), unique=False)
-    involvedAgent = Column(String(512), unique=False)
-    url = Column(String(2083), unique=True)
+    address = Column(String(512))
+    description = Column(String(512))
+    latitude = Column(String(16))
+    longitude = Column(String(16))
+    postal_code = Column(String(16))
+    price_range = Column(String(32))
+    ticket_availability = Column(Boolean)
+    date_header = Column(String(512))
+    start_date_time = Column(DateTime)
+    end_date_time = Column(DateTime)
 
-    def __init__(self, name=None, atPlace=None, atTime=None, circa=None, illustrate=None, inSpace=None, involved=None, involvedAgent=None, url=None):
+    def __init__(self, subcategory, name, address, description, latitude, longitude, postal_code, price_range, ticket_availability, date_header, start_date_time, end_date_time):
+        self.subcategory = subcategory
         self.name = name
-        self.atPlace = atPlace
-        self.atTime = atTime
-        self.circa = circa
-        self.illustrate = illustrate
-        self.inSpace = inSpace
-        self.involved = involved
-        self.involvedAgent = involvedAgent
-        self.url = url
+        self.address = address
+        self.description = description
+        self.latitude = latitude
+        self.longitude = longitude
+        self.postal_code = postal_code
+        self.price_range = price_range
+        self.ticket_availability =  ticket_availability
+        self.date_header = date_header
+        self.start_date_time = start_date_time
+        self.end_date_time = end_date_time
+
+
 
     def __repr__(self):
         return '<Event %r>' % (self.name)
