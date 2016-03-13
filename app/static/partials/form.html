@@ -1,8 +1,11 @@
-<div class="right-now-form">
-  <form id="finder-form" ng-submit="findEvent()">
-    <div ui-view></div>
+<div id="right-now-form">
+  <form id="finder-form">
+    <div id="form-views" ui-view></div>
   </form>
 </div>
+<span ng-show="atEvent" ng-click="sendQuery()">
+  Next!
+</span>
 
 <!-- <pre>
   {{ formData }}
