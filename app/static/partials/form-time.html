@@ -1,10 +1,8 @@
 <fieldset class="form-group">
-  <label for="timeSelect">Hello! When do you want to do something?</label>
-  <select class="form-control" id="timeSelect" ng-change="timeSelected()">
-    <option>Right Now!</option>
-    <option>Later today</option>
-    <option>Tomorrow</option>
-    <option>This Friday</option>
-    <option>This Saturday</option>
+  <label for="timeSelect">When do you want to do something?</label>
+  <select class="form-control" id="timeSelect"
+    ng-model="formData.time"
+    ng-options="time.name for time in times track by time.name"
+    ng-change="timeSelected()">
   </select>
 </fieldset>

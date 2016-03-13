@@ -2,6 +2,7 @@ var rightnow = angular.module('rightnow', ['ui.router']);
 
 rightnow.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/form/time");
+  $urlRouterProvider.otherwise("/form/what");
   $stateProvider
     .state('form', {
       url: '/form',
