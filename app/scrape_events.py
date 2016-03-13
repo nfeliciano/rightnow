@@ -31,7 +31,7 @@ def parse_events(EVENTS_ENDPOINT):
                 models.Event(
                     placemark["category"]["name"] if placemark["category"] else "",
                     placemark["name"]["text"],
-                    placemark["venue"]["name"] +" ," + placemark["venue"]["address"]["address_1"],
+                    null_check(placemark["venue"],"name") +" ," + placemark["venue"]["address"]["address_1"],
                     placemark["description"]["text"],
                     null_check(placemark["venue"]["address"],"latitude"),
                     null_check(placemark["venue"]["address"],"longitude"),
@@ -57,6 +57,7 @@ def run_scraper():
         page_number = 2
         while page_number < page_count:
             parse_events(TOURISM_VICTORIA_EVENTS_ENDPOINT.format(page_number))
+            page_number+=1
 
 
 if __name__ == "__main__":
