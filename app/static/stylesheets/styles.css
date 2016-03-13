@@ -15,3 +15,7 @@ body {
   padding: 10px;
   min-height: 300px;
 }
+
+.bold {
+  font-weight: bold;
+}
