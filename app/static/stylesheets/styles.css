@@ -1,0 +1,17 @@
+body {
+  background-color: #000;
+  color: #fff;
+}
+
+.content {
+  margin-top: 200px;
+}
+
+.right-now-form {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 25px;
+  border-color: #fff;
+  padding: 10px;
+  min-height: 300px;
+}
