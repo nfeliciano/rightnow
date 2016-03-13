@@ -1,8 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300italic,300,900italic,900,700italic,700,400italic&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Lustria);
 
 body {
   font-family: Lato, sans-serif;
   color: #FFF;
+}
+
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
 }
 
 .content {
@@ -75,6 +80,37 @@ body.disco .page > * { /* Selectors of things you want to fade out. Not applicab
   overflow: hidden;
 }
 
+#form-views label {
+  font-size: 16px;
+}
+
+.event h2 {
+  font-family: Lustria, serif;
+}
+
+.event h3 {
+  margin-left: 100px;
+}
+
+.event-icon {
+  float: right;
+  margin-top: -30px
+}
+
+.address-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.address-link:hover {
+  text-decoration: none;
+}
+
+.address-link:after {
+  text-decoration: none;
+  color: #fff;
+}
+
 @media (max-width: 600px) {
   .content {
     margin-top: 20px;
@@ -87,6 +123,10 @@ body.disco .page > * { /* Selectors of things you want to fade out. Not applicab
   #form-views {
     max-height: 500px;
     min-height: 500px;
+  }
+
+  .event h3 {
+    margin-left: 0px;
   }
 }
 
@@ -157,4 +197,45 @@ body.disco .page > * { /* Selectors of things you want to fade out. Not applicab
   100% { opacity: 1; top: 0; }
 }
 
-@-webkit-keyframes disco { 0% { background: #508; }2% { background: #fd7; }4% { background: #85f; }6% { background: #708; }8% { background: #ed2; }10% { background: #67c; }12% { background: #06a; }14% { background: #8bb; }16% { background: #0f8; }18% { background: #8a9; }20% { background: #3bc; }22% { background: #fb2; }24% { background: #31c; }26% { background: #e31; }28% { background: #c75; }30% { background: #e39; }32% { background: #e66; }34% { background: #89d; }36% { background: #302; }38% { background: #0f7; }40% { background: #c6f; }42% { background: #14c; }44% { background: #ac3; }46% { background: #aec; }48% { background: #42e; }50% { background: #74d; }52% { background: #7a7; }54% { background: #da3; }56% { background: #ba4; }58% { background: #17e; }60% { background: #58b; }62% { background: #7eb; }64% { background: #58e; }66% { background: #740; }68% { background: #26d; }70% { background: #bb6; }72% { background: #c3c; }74% { background: #33a; }76% { background: #f4c; }78% { background: #83b; }80% { background: #e45; }82% { background: #426; }84% { background: #fe5; }86% { background: #71f; }88% { background: #e2f; }90% { background: #294; }92% { background: #63e; }94% { background: #275; }96% { background: #2ae; }98% { background: #197; }100% { background: #7bd; } }
+@-webkit-keyframes disco { 0% { background: #508; }2% { background: #197; }4% { background: #85f; }6% { background: #708; }8% { background: #ed2; }10% { background: #67c; }12% { background: #06a; }14% { background: #8bb; }16% { background: #0f8; }18% { background: #8a9; }20% { background: #3bc; }22% { background: #fb2; }24% { background: #31c; }26% { background: #e31; }28% { background: #c75; }30% { background: #e39; }32% { background: #e66; }34% { background: #89d; }36% { background: #302; }38% { background: #0f7; }40% { background: #c6f; }42% { background: #14c; }44% { background: #ac3; }46% { background: #aec; }48% { background: #42e; }50% { background: #74d; }52% { background: #7a7; }54% { background: #da3; }56% { background: #ba4; }58% { background: #17e; }60% { background: #58b; }62% { background: #7eb; }64% { background: #58e; }66% { background: #740; }68% { background: #26d; }70% { background: #bb6; }72% { background: #c3c; }74% { background: #33a; }76% { background: #f4c; }78% { background: #83b; }80% { background: #e45; }82% { background: #426; }84% { background: #fe5; }86% { background: #71f; }88% { background: #e2f; }90% { background: #294; }92% { background: #63e; }94% { background: #275; }96% { background: #2ae; }98% { background: #197; }100% { background: #7bd; } }
+
+
+
+@font-face {
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?qjpevm');
+    src:    url('fonts/icomoon.eot?qjpevm#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?qjpevm') format('truetype'),
+        url('fonts/icomoon.woff?qjpevm') format('woff'),
+        url('fonts/icomoon.svg?qjpevm#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dice:before {
+    content: "\e900";
+}
+.icon-location:before {
+    content: "\e901";
+}
+.icon-calendar:before {
+    content: "\e902";
+}
+.icon-spoon-knife:before {
+    content: "\e903";
+}

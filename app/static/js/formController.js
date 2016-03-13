@@ -61,6 +61,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
           $state.transitionTo('form.event');
         }
       }
+      console.log($scope.meetJason);
       $scope.atEvent = true;
     }).error(function(error) {
       console.log(error);
@@ -74,11 +75,16 @@ rightnow.controller('formController', function($scope, $state, $http) {
   }
 
   function getQueryString(formData) {
-    if (formData.eventType.name == 'Something to eat')
+    if (formData.eventType.name == 'Something to eat') {
+      $scope.selectedEventType.name = 'icon-spoon-knife';
       return 'api?random=10&table=restaurants';
-    else if (formData.eventType.name == 'Somewhere to hang out')
+    } else if (formData.eventType.name == 'Somewhere to hang out') {
+      $scope.selectedEventType.name = 'icon-dice';
       return 'api?random=10&table=activities';
-    else return 'api?random=1&table=events';
+    } else {
+      $scope.selectedEventType.name = 'icon-calendar';
+      return 'api?random=1&table=events';
+    }
   }
 
   $scope.swipeLeft = function() {
