@@ -15,20 +15,27 @@ def ticket_availability(m_placemark):
     else:
         return (m_placemark["ticket_availability"]["remaining_capacity"] > 0)
 
+def null_check(m_placemark, val):
+    if val in m_placemark:
+        return m_placemark[val]
+    else:
+        return ""
+
+
 def parse_events(EVENTS_ENDPOINT):
     response = requests.get(EVENTS_ENDPOINT)
     events = []
     for placemark in response.json()["events"]:
-        if placemark["venue"]["address"]["city"] == "Victoria":
+        #if placemark["venue"]["address"]["city"] == "Victoria":
             events.append(
                 models.Event(
-                    placemark["category"]["name"],
+                    placemark["category"]["name"] if placemark["category"] else "",
                     placemark["name"]["text"],
                     placemark["venue"]["name"] +" ," + placemark["venue"]["address"]["address_1"],
                     placemark["description"]["text"],
-                    placemark["venue"]["address"]["latitude"],
-                    placemark["venue"]["address"]["longitude"],
-                    placemark["venue"]["address"]["postal_code"],
+                    null_check(placemark["venue"]["address"],"latitude"),
+                    null_check(placemark["venue"]["address"],"longitude"),
+                    null_check(placemark["venue"]["address"], "postal_code"),
                     placemark["price_range"],
                     ticket_availability(placemark),
                     placemark["start"]["date_header"],
@@ -49,7 +56,7 @@ def run_scraper():
     if page_count > 1:
         page_number = 2
         while page_number < page_count:
-            parse_events(TOURISM_VICTORIA_EVENTS_ENDPOINT.format("page_number"))
+            parse_events(TOURISM_VICTORIA_EVENTS_ENDPOINT.format(page_number))
 
 
 if __name__ == "__main__":
