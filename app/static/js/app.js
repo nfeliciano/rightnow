@@ -1,7 +1,7 @@
 var rightnow = angular.module('rightnow', ['ngAnimate','ui.router', 'ngTouch']);
 
 rightnow.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/form/time");
+  $urlRouterProvider.otherwise("/form/what");
   $stateProvider
     .state('form', {
       url: '/form',
