@@ -49,7 +49,7 @@ def run_scraper():
     if page_count > 1:
         page_number = 2
         while page_number < page_count:
-            parse_events(TOURISM_VICTORIA_EVENTS_ENDPOINT.format("page_number"))
+            parse_events(TOURISM_VICTORIA_EVENTS_ENDPOINT.format(page_number))
 
 
 if __name__ == "__main__":
