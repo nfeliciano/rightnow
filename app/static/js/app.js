@@ -1,4 +1,4 @@
-var rightnow = angular.module('rightnow', ['ui.router']);
+var rightnow = angular.module('rightnow', ['ngAnimate','ui.router']);
 
 rightnow.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/form/time");
@@ -22,6 +22,10 @@ rightnow.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('form.event', {
       url: '/event',
+      templateUrl: '/static/partials/form-event.html'
+    })
+    .state('form.event2', {
+      url: '/event2',
       templateUrl: '/static/partials/form-event.html'
     });
 });
