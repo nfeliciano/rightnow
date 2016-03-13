@@ -1,6 +1,6 @@
 import random
 
-from flask import Flask, send_file, jsonify
+from flask import Flask, send_file, jsonify, request
 import database
 import models
 from json import dumps
@@ -24,8 +24,25 @@ def recommend_restaurant():
 
 
 @app.route('/api')
-def show_user_profile():
-    return jsonify(**serialize(recommend_restaurant()))
+def api_request():
+    random = request.args.get('random')
+    if(random.isdigit()):
+        data = list()
+        for i in range(int(random)):
+            data.append(serialize(recommend_restaurant()))
+
+        result = {'result' : data};
+        return jsonify(**result)
+
+    return jsonify(**[])#jsonify(**serialize(recommend_restaurant()))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    username = request.args.get('username')
+    password = request.args.get('password')
+    print(username)
+    print(password)
+    return ''
 
 @app.route('/')
 def index():
