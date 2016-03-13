@@ -12,11 +12,9 @@ rightnow.controller('formController', function($scope, $state, $http) {
   ];
 
   $scope.eventTypes = [
-    { name: 'A' },
-    { name: 'B' },
-    { name: 'C' },
-    { name: 'D' },
-    { name: 'E' }
+    { name: 'Restaurant' },
+    { name: 'Activity' },
+    { name: 'Event' }
   ];
 
   $scope.findEvent = function() {
@@ -30,13 +28,21 @@ rightnow.controller('formController', function($scope, $state, $http) {
 
   $scope.eventTypeSelected = function() {
     //change here
-    $http.get('api?random=1&table=activities')
+    $http.get(getQueryString($scope.formData))
     .success(function(data) {
       $scope.meetJason = data.result[0];
       $state.transitionTo('form.event');
     }).error(function(error) {
       console.log(error);
     });
+  }
+
+  function getQueryString(formData) {
+    if (formData.eventType.name == 'Restaurant')
+      return 'api?random=1&table=restaurants';
+    else if (formData.eventType.name == 'Activity')
+      return 'api?random=1&table=activities';
+    else return 'api?random=1&table=activities';
   }
 
   // $scope.meetJason = {
