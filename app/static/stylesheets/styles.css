@@ -2,7 +2,6 @@
 
 body {
   font-family: Lato, sans-serif;
-  background-color: #FFF;
   color: #FFF;
 }
 
@@ -34,8 +33,17 @@ body {
   color: #fff;
 }
 
+.form-sel {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.form-sel option {
+  background-color: #000;
+}
+
 body.disco {
-  background: #000;
+  background: #508;
   -webkit-animation-name: disco;
   -webkit-animation-duration: 1000s;
   -webkit-animation-iteration-count: infinite;

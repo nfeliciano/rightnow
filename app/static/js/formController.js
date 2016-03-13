@@ -14,14 +14,14 @@ rightnow.controller('formController', function($scope, $state, $http) {
   ];
 
   $scope.eventTypes = [
-    { name: 'Restaurant' },
-    { name: 'Activity' },
-    { name: 'Event' }
+    { name: 'Something to eat' },
+    { name: 'Somewhere to hang out' },
+    { name: 'Something happening right now' }
   ];
 
   $scope.activityTypes = [
-    { name: 'Outdoor Activities' },
-    { name: 'Nightlife Activities' }
+    { name: 'Yes!' }, //outdoors
+    { name: 'Nope' } //indoors
   ];
 
   $scope.timeSelected = function() {
@@ -32,7 +32,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
   $scope.eventTypeSelected = function() {
     //change here
     $scope.atStart = false;
-    if ($scope.formData.eventType.name == 'Restaurant' || $scope.formData.eventType.name == 'Event')
+    if ($scope.formData.eventType.name == 'Something to eat' || $scope.formData.eventType.name == 'Something happening right now')
       $scope.sendQuery();
     else {
       // $scope.activityTypeSelected();
@@ -43,7 +43,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
   $scope.activityTypeSelected = function() {
     //change here
     // $scope.eventTypeSelected();
-    $scope.formData.eventType.name = 'Activity';
+    $scope.formData.eventType.name = 'Somewhere to hang out';
     $scope.sendQuery();
   }
 
@@ -74,9 +74,9 @@ rightnow.controller('formController', function($scope, $state, $http) {
   }
 
   function getQueryString(formData) {
-    if (formData.eventType.name == 'Restaurant')
+    if (formData.eventType.name == 'Something to eat')
       return 'api?random=10&table=restaurants';
-    else if (formData.eventType.name == 'Activity')
+    else if (formData.eventType.name == 'Somewhere to hang out')
       return 'api?random=10&table=activities';
     else return 'api?random=1&table=events';
   }

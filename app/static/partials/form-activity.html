@@ -1,6 +1,9 @@
+<h2>Ah! Let's find you somewhere fun to go to...</h2>
+<br />
+<br />
 <fieldset class="form-group">
-  <label for="activityTypeSelect">What are you feeling like?</label>
-  <select class="form-control" id="activityTypeSelect"
+  <label for="activityTypeSelect">You feeling outdoors-y?</label>
+  <select class="form-control form-sel" id="activityTypeSelect"
     ng-model="formData.activityType"
     ng-options="activityType.name for activityType in activityTypes track by activityType.name"
     ng-change="activityTypeSelected()">
