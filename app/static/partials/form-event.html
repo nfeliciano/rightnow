@@ -1,6 +1,9 @@
 <div class="event">
   <h2 class="event-icon {{ selectedEventType.name }}"></h2>
-  <h2>You should check out <span class="bold">{{ meetJason.name }}</span></h2>
+  <h2>{{randomText.quote}}<span class="bold"> {{ meetJason.name }}
+    <span ng-show="randomText.type=='question'">?</span>
+    <span ng-if="randomText.type=='exclamation'">!</span></span>
+  </h2>
   <h3 ng-hide="!meetJason.address">on {{ meetJason.address }}
     <a class="address-link" ng-href="http://maps.google.com/?q={{meetJason.address}}" target=_blank><span class="icon-location"></span></a>
   </h3>

@@ -5,6 +5,33 @@ rightnow.controller('formController', function($scope, $state, $http) {
   $scope.atEvent = false;
   $scope.atStart = true;
 
+  $scope.tryText = [
+    { type: 'normal',
+      quote: 'You should check out' },
+    { type: 'normal',
+      quote: 'A friend told me about' },
+    { type: 'normal',
+      quote: 'Uhhhhhhhh... Try' },
+    { type: 'normal',
+      quote: 'Take a look at' },
+    { type: 'question',
+      quote: 'Maybe' },
+    { type: 'question',
+      quote: 'Have you heard about' },
+    { type: 'question',
+      quote: 'You wanna go to' },
+    { type: 'question',
+      quote: 'Have you ever tried' },
+    { type: 'exclamation',
+      quote: 'Duh! Go to' },
+    { type: 'exclamation',
+      quote: 'You haven\'t lived until you\'ve been to' },
+    { type: 'exclamation',
+      quote: 'I\'ve decided. We\'re going to' },
+    { type: 'exclamation',
+      quote: 'You know what? Let\'s do' }
+  ];
+
   $scope.times = [
     { name: 'Right Now!' },
     { name: 'Later Tonight' },
@@ -61,7 +88,7 @@ rightnow.controller('formController', function($scope, $state, $http) {
           $state.transitionTo('form.event');
         }
       }
-      console.log($scope.meetJason);
+      $scope.randomText = $scope.tryText[Math.floor(Math.random() * $scope.tryText.length)];
       $scope.atEvent = true;
     }).error(function(error) {
       console.log(error);
