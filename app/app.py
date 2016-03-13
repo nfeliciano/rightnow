@@ -25,16 +25,17 @@ def recommend_restaurant():
 
 @app.route('/api')
 def api_request():
+    data = list()
     random = request.args.get('random')
-    if(random.isdigit()):
-        data = list()
+
+
+    if(random and random.isdigit()):
         for i in range(int(random)):
             data.append(serialize(recommend_restaurant()))
-
-        result = {'result' : data};
-        return jsonify(**result)
-
-    return jsonify(**[])#jsonify(**serialize(recommend_restaurant()))
+    elif(True):
+        pass
+    result = {'result' : data};
+    return jsonify(**result)#jsonify(**serialize(recommend_restaurant()))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
