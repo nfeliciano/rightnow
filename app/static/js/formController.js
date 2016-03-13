@@ -41,10 +41,9 @@ rightnow.controller('formController', function($scope, $state, $http) {
   //   url: 'http://www.tourismvictoria.com/includes/redirects/webcount.cfm?listingID=33959'
   // };
 
-  $http.get('http://localhost:5000/api?random=1')
+  $http.get('api?random=1')
     .success(function(data) {
       $scope.meetJason = data.result[0];
-      console.log($scope.meetJason);
     }).error(function(error) {
       console.log(error);
     });

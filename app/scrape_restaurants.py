@@ -31,6 +31,5 @@ def run_scraper():
     database.db_session.add_all(restaurants)
     database.db_session.commit()
 
-
 if __name__ == "__main__":
     run_scraper()
